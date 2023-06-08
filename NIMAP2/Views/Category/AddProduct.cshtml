@@ -1,0 +1,50 @@
+﻿@model IEnumerable<NIMAP2.Models.Product>
+
+@{ ViewBag.Title = "AddProduct"; }
+
+<h1>PRODUCTS</h1>
+<table class="table">
+
+    <tr>
+
+        <th>
+            @Html.DisplayNameFor(model => model.ProductName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductPrice)
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductPrice)
+            </td>
+            <td>
+                <button class="btn btn-success"> @Html.ActionLink("Add Product", "AddProductData", new { Pid = item.Id, Cid = (int)Session["CatagoryId"] })</button>
+            </td>
+
+
+        </tr>
+}
+
+</table>
+
+@{
+    ViewBag.Title = "AddProduct";
+}
+
+<h2>AddProduct</h2>
+

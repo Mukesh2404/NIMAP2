@@ -1,0 +1,45 @@
+﻿@model IEnumerable<NIMAP2.viewmodel.Report>
+
+@{ ViewBag.Title = "AllReport"; }
+
+<h2>AllReport</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CatName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UserName)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.CatName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.ProName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.price)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.UserName)
+    </td>
+
+</tr>}
+
+</table>

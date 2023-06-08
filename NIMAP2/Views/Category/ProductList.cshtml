@@ -1,0 +1,45 @@
+﻿@model IEnumerable<NIMAP2.Models.Product>
+
+@{ ViewBag.Title = "ProductList"; }
+
+<h2>ProductList</h2>
+@Html.Raw(TempData["Message"])
+<p>
+    @*@Html.ActionLink("Create New", "Create")*@
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductPrice)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.ProductName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.ProductDescription)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.ProductPrice)
+    </td>
+    <td>
+        @*@Html.ActionLink("Edit", "Edit","Product", new { id=item.Id },null) |*@
+        <button class="btn btn-success">
+            @Html.ActionLink("Details", "Details", "Product", new { id = item.Id }, null)
+        </button>
+        @*@Html.ActionLink("Delete", "Delete","Product", new { id=item.Id },null)*@
+    </td>
+</tr>}
+
+</table>
